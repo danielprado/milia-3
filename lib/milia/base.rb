@@ -18,7 +18,12 @@ module Milia
         belongs_to  :tenant
         validates_presence_of :tenant_id
 
-        default_scope lambda { where( "#{table_name}.tenant_id = ?", Thread.current[:tenant_id] ) }
+        #default_scope lambda { where( "#{table_name}.tenant_id = ?", Thread.current[:tenant_id] ) }
+        
+        #Override the default_scope chaining for MTI to work
+        def self.default_scope
+            where( "#{self.table_name}.tenant_id = ?", Thread.current[:tenant_id] )
+        end
 
       # ..........................callback enforcers............................
         before_validation(:on => :create) do |obj|   # force tenant_id to be correct for current_user
