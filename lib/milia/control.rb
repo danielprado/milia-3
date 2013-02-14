@@ -36,7 +36,7 @@ module Milia
         if tenant_id.nil?  # no arg; find automatically based on user
           tenant_id = @_my_tenants.first.id  # just pick the first one
         else   # validate the specified tenant_id before setup
-          raise InvalidTenantAccess unless @_my_tenants.any?{|tu| tu.id == tenant_id}
+          raise InvalidTenantAccess unless @_my_tenants.any?{|tu| tu.id == tenant_id.to_i}
         end
         
         session[:tenant_id] = tenant_id  # remember it going forward
