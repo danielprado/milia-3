@@ -60,7 +60,12 @@ module Milia
   def initiate_tenant( tenant )
     Thread.current[:tenant_id] = tenant.id
   end
-  
+#-------------------------------------------------------------------------------
+#current_tenant -- shortcut to Tenant.current tenant within the controllers
+#-------------------------------------------------------------------------------  
+  def current_tenant
+     Tenant.current_tenant
+  end   
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
