@@ -27,14 +27,18 @@ module Milia
 # EXCEPTIONS -- InvalidTenantAccess
 # ------------------------------------------------------------------------------
     def set_current_tenant( tenant_id = nil )
-      if user_signed_in?
+      if user_signed_in? and !current_user.tenants.empty?
         
         @_my_tenants ||= current_user.tenants  # gets all possible tenants for user
         
         tenant_id ||= session[:tenant_id]   # use session tenant_id ?
         
         if tenant_id.nil?  # no arg; find automatically based on user
-          tenant_id = @_my_tenants.first.id  # just pick the first one
+         if !@_my_tenants.first.nil?
+            tenant_id = @_my_tenants.first.id  # just pick the first one
+         else
+            raise InvalidTenantAccess
+         end
         else   # validate the specified tenant_id before setup
           raise InvalidTenantAccess unless @_my_tenants.any?{|tu| tu.id == tenant_id.to_i}
         end
