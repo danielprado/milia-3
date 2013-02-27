@@ -94,11 +94,12 @@ module Milia
           # before create, tie user with current tenant
           # return true if ok to proceed; false if break callback chain
         after_create do |new_user|
-          tenant = Tenant.find( Thread.current[:tenant_id] )
-          unless tenant.users.include?(new_user)
-            tenant.users << new_user  # add user to this tenant if not already there
+          if Thread.current[:tenant_id]
+            tenant = Tenant.find( Thread.current[:tenant_id] )
+            unless tenant.users.include?(new_user)
+              tenant.users << new_user  # add user to this tenant if not already there
+            end
           end
-
         end # before_create do
         
         before_destroy do |old_user|
