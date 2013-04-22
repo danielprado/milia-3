@@ -46,7 +46,7 @@ module Milia
         session[:tenant_id] = tenant_id  # remember it going forward
 
       else   # user not signed in yet...
-        tenant_id = 0  if tenant_id.nil?   # an impossible tenant_id
+        tenant_id = nil  if tenant_id.nil?   # an impossible tenant_id
       end
               
       Thread.current[:tenant_id] = tenant_id
