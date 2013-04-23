@@ -142,11 +142,12 @@ module Milia
 # the models ... it's only useful and safe WHEN performed at the start
 # of a background job (DelayedJob#perform)
 # ------------------------------------------------------------------------
-  def set_current_tenant( tenant )
+  def set_current_tenant( tenant=nil )
       # able to handle tenant obj or tenant_id
     case tenant
       when Tenant then tenant_id = tenant.id
       when Integer then tenant_id = tenant
+      when nil then tenant_id = nil
       else
         raise ArgumentError, "invalid tenant object or id"
     end  # case
