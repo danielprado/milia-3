@@ -27,13 +27,13 @@ module Milia
 
       # ..........................callback enforcers............................
         before_validation(:on => :create) do |obj|   # force tenant_id to be correct for current_user
-          obj.tenant_id = Thread.current[:tenant_id]
+          obj.tenant_id = Thread.current[:tenant_id] unless Thread.current[:tenant_id]==nil
           true  #  ok to proceed
         end
 
       # ..........................callback enforcers............................
         before_save do |obj|   # force tenant_id to be correct for current_user
-          obj.tenant_id = Thread.current[:tenant_id]
+          obj.tenant_id = Thread.current[:tenant_id] unless Thread.current[:tenant_id]==nil
           true  #  ok to proceed
         end
 
