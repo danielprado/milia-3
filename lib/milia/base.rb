@@ -16,7 +16,8 @@ module Milia
       def acts_as_tenant()
         attr_protected :tenant_id
         belongs_to  :tenant
-        validates_presence_of :tenant_id
+        can_skip_validation_for :tenant_id
+        validates_presence_of :tenant_id, :unless => :skip_tenant_id_validation?
 
         #default_scope lambda { where( "#{table_name}.tenant_id = ?", Thread.current[:tenant_id] ) }
         
