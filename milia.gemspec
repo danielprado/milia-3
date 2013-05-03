@@ -141,6 +141,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<turn>, [">= 0"])
+      s.add_development_dependency(%q<validation_skipper>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.2.9"])
       s.add_dependency(%q<devise>, ["= 2.1.2"])
@@ -149,6 +150,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<turn>, [">= 0"])
+      s.add_dependency(%q<validation_skipper>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, [">= 3.2.9"])
@@ -158,6 +160,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<turn>, [">= 0"])
+    s.add_dependency(%q<validation_skipper>, [">= 0"])
   end
 end
 
