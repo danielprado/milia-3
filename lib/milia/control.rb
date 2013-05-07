@@ -41,12 +41,15 @@ module Milia
          #end
         else   # validate the specified tenant_id before setup
           raise InvalidTenantAccess unless @_my_tenants.any?{|tu| tu.id == tenant_id.to_i}
+          tenant_id= tenant_id.to_i
         end
         
         session[:tenant_id] = tenant_id  # remember it going forward
 
       else   # user not signed in yet...
-        tenant_id = nil  if tenant_id.nil?   # an impossible tenant_id
+        unless tenant_id.nil? 
+         tenant_id = nil    # an impossible tenant_id
+        end
       end
               
       Thread.current[:tenant_id] = tenant_id
