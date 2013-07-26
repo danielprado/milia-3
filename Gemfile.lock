@@ -107,7 +107,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  devise (= 2.1.2)
+  devise (>= 2.1.2)
   jeweler (~> 1.6.4)
   pg
   rails (>= 3.2.9)
