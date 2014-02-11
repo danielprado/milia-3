@@ -5,6 +5,8 @@ source "http://rubygems.org"
 
   gem 'rails', '>= 3.2.9'
   gem 'devise', '>= 2.4.2'
+  gem 'validation_skipper'
+  gem 'protected_attributes'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
