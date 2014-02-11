@@ -2,6 +2,7 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
+  gemspec
 
   gem 'rails', '>= 3.2.9'
   gem 'devise', '>= 2.4.2'
