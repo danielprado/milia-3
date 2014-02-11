@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
     ".rvmrc",
     ".slugignore",
     "Gemfile",
-    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "Rakefile",
@@ -142,6 +141,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<turn>, [">= 0"])
       s.add_development_dependency(%q<validation_skipper>, [">= 0"])
+      s.add_development_dependency(%q<protected_attributes>,[">=0"])
     else
       s.add_dependency(%q<rails>, [">= 4.0.0"])
       s.add_dependency(%q<devise>, [">= 2.1.2"])
@@ -151,6 +151,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<turn>, [">= 0"])
       s.add_dependency(%q<validation_skipper>, [">= 0"])
+      s.add_dependency(%q<protected_attributes>,[">= 0"])
     end
   else
     s.add_dependency(%q<rails>, [">= 4.0.0"])
@@ -161,6 +162,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<turn>, [">= 0"])
     s.add_dependency(%q<validation_skipper>, [">= 0"])
+    s.add_dependency(%q<protected_attributes>, [">= 0"])
   end
 end
 
